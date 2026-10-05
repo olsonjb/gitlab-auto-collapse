@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>GitLab Auto Collapse</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <h1>Auto-collapse patterns</h1>
+    <form id="add-form">
+      <input
+        id="pattern-input"
+        type="text"
+        placeholder="myproject/i18n/*.json"
+        autocomplete="off"
+        spellcheck="false"
+        autofocus
+      />
+      <button type="submit">Add</button>
+    </form>
+    <ul id="pattern-list"></ul>
+    <p id="empty-message">No patterns. Add a pattern to collapse the files that match it.</p>
+    <details>
+      <summary>Pattern rules</summary>
+      <ul class="rules">
+        <li><code>*</code> matches all characters except <code>/</code>.</li>
+        <li><code>**</code> matches all characters, <code>/</code> included.</li>
+        <li><code>?</code> matches one character.</li>
+        <li>A pattern with a <code>/</code> starts at the repository root.</li>
+        <li>A pattern without a <code>/</code> matches the file name in all directories.</li>
+        <li>A pattern that starts with <code>.</code> matches the end of the file name.</li>
+      </ul>
+    </details>
+    <script src="popup.js"></script>
+  </body>
+</html>
